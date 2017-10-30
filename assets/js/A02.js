@@ -1,5 +1,6 @@
 var number1;
-
+var outputMeters;
+var outputMeters1;
 
 function LengthConverter() {
   document.getElementById("outputMeters").innerHTML=outputMeters();
@@ -13,7 +14,7 @@ function LengthConverter() {
        $("#outputMeters1").css("background-color", "red"); 
     }
 
-    function outputMeters(x) {
+    function outputMeters() {
       var x=parseInt(document.getElementById("inputFeet").value);
       
       if(x>0){         

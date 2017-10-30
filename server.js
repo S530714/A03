@@ -32,10 +32,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // 4 handle http GET requests (default & /new-entry)
 
 app.get("/", function (request, response) {
-  response.render("A01HomePage");
+  response.render("about");
 });
-app.get("/A01HomePage", function (request, response) {
-  response.render("A01HomePage");
+app.get("/about", function (request, response) {
+  response.render("about");
 });
 app.get('/A01Contact', function(request,response){
   response.render("A01Contact");
@@ -54,24 +54,7 @@ app.get("/A01lengthconverter", function (request, response) {
 });
 
 
-// 5 handle an http POST request to the new-entry URI 
-// app.post("/contact", function (request, response) {
-//  var api_key = 'key-8bb98c339325eae4f48499cb5220a309';
-// var domain = 'sandboxfc5e6b22a8aa4fca8f52b390d96e691e.mailgun.org';
-// var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
- 
-// var data = {
-//   from: 'Haritha Kurla <postmaster@sandboxfc5e6b22a8aa4fca8f52b390d96e691e.mailgun.org>',
-//   to: 'S528744@mail.nwmissouri.edu',
-//   subject: request.body.userName,
-//   text: request.body.message
-// };
- 
-// mailgun.messages().send(data, function (error, body) {
-//   console.log(body);
-// });
-// response.redirect("contact");
-// });
+
 app.post("/new-entry", function (request, response) {
   if (!request.body.title || !request.body.body) {
     response.status(400).send("Entries must have a title and a body.");
@@ -82,7 +65,7 @@ app.post("/new-entry", function (request, response) {
     content: request.body.body,
     published: new Date()
   });
-  response.redirect("A01HomePage");  // where to go next? Let's go to the home page :)
+  response.redirect("about");  // where to go next? Let's go to the home page :)
 });
 // if we get a 404 status, render our 404.ejs view
 app.use(function (request, response) {
