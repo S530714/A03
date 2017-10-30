@@ -18,7 +18,7 @@ function LengthConverter() {
       var x=parseInt(document.getElementById("inputFeet").value);
       
       if(x>0){         
-      number1= x/3.2808;
+      number1=cal(x);
       return number1;
     }
     else if(x<0){        
@@ -30,7 +30,17 @@ function LengthConverter() {
       return x;
     }
   }
-   
+   function cal(x){
+     return x/3.2808;
+   }
+   function calv(x){
+     if(x<0){
+       return "undefined";
+     }else{
+      return x;
+     }
+    
+  }
   function outputMeters1() {
     var x=parseInt(document.getElementById("inputKilometers").value);
     
